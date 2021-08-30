@@ -1,8 +1,14 @@
-<form>
-  
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{% url 'verify' %}" method="POST">
+  {% csrf_token %}
   <div class="mb-3">
-    <input type="text" class="form-control" name="first_name" placeholder="First Name" id="exampleInputEmail1" required>
+    <input type="text" class="form-control" name="otp" placeholder="OTP" id="exampleInputEmail1" required>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+{% endblock %}
